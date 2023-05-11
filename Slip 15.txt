@@ -1,0 +1,26 @@
+Slip 15
+1.Write a java program to display name and priority of a Thread.
+
+
+class MyThread extends Thread
+{
+public void run() {
+ System.out.println("Thread name: " + getName());
+ System.out.println("Thread priority: " + getPriority());
+ }
+}
+public class ThreadInfo {
+ public static void main(String[] args) {
+ MyThread thread = new MyThread();
+ thread.setName("MyThread");
+ thread.setPriority(Thread.MAX_PRIORITY);
+ thread.start();
+ }
+}
+
+
+-------------
+
+2. Write a SERVLET program which counts how many times a user has visited a web page. If
+user is visiting the page for the first time, display a welcome message. If the user is revisiting
+the page, display the number of times visited. (Use Cookie)

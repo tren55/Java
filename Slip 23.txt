@@ -1,0 +1,60 @@
+Slip 23
+
+1.Write a java program to accept a String from a user and display each vowel from a String
+after every 3 seconds.
+
+
+import java.util.Scanner;
+public class VowelDisplayDemo {
+ public static void main(String[] args) {
+ Scanner scanner = new Scanner(System.in);
+ System.out.print("Enter a string: ");
+ String str = scanner.nextLine().toLowerCase();
+ for (int i = 0; i < str.length(); i++) {
+ char ch = str.charAt(i);
+ if (isVowel(ch)) {
+ System.out.println(ch);
+ try {
+ Thread.sleep(3000); // sleep for 3 seconds
+ } catch (InterruptedException e) {
+ e.printStackTrace();
+ }
+ }
+ }
+ }
+ private static boolean isVowel(char ch) {
+ return ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u';
+ }
+}
+
+-----------------------------------------------------------
+
+
+2.Write a java program to accept ‘N’ student names through command line, store them into
+the appropriate Collection and display them by using Iterator and ListIterator interface.
+
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.ListIterator;
+public class StudentNamesDemo {
+ public static void main(String[] args) {
+ ArrayList<String> studentNames = new ArrayList<>();
+ // Adding student names to ArrayList
+ for (int i = 0; i < args.length; i++) {
+ studentNames.add(args[i]);
+ }
+ // Displaying student names using Iterator interface
+ System.out.println("Displaying student names using Iterator interface:");
+ Iterator<String> iterator = studentNames.iterator();
+ while (iterator.hasNext()) {
+ System.out.println(iterator.next());
+ }
+ // Displaying student names using ListIterator interface
+ System.out.println("\nDisplaying student names using ListIterator interface:");
+ ListIterator<String> listIterator = studentNames.listIterator();
+ while (listIterator.hasNext()) {
+ System.out.println(listIterator.next());
+ }
+ }
+}

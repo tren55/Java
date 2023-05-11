@@ -1,0 +1,97 @@
+Slip 8
+1. Write a java program to define a thread for printing text on output screen for ‘n’ number of
+times. Create 3 threads and run them. Pass the text ‘n’ parameters to the thread constructor.
+Example:
+i. First thread prints “COVID19” 10 times.
+ii. Second thread prints “LOCKDOWN2020” 20 times
+iii. Third thread prints “VACCINATED2021” 30 times
+
+
+
+import java.io.*;
+import java.util.*;
+import java.lang.*;
+public class vacc extends Thread
+{
+String m;
+int n;
+vacc(String m,int n)
+{
+this.m=m;
+this.n=n;
+}
+public void run()
+{
+for(int i=0;i<n;i++)
+{
+System.out.println(m);
+}
+}
+public static void main(String args[])
+{
+vacc b1 = new vacc("Covid19",10);
+vacc b2 = new vacc("Lockdown2020",20);
+vacc b3 = new vacc("Vaccinated",30);
+b1.start();
+b2.start();
+b3.start();
+}
+}
+
+
+
+----------------------------------------------------------------------------
+
+
+
+2.Write a JSP program to check whether a given number is prime or not. Display the result in
+red color.
+
+Html code
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<form action="slip8.jsp" method="post">
+Enter Number :
+<input type="text" name="num">
+<input type="submit" value="Submit">
+</form>
+</body>
+</html>
+Jsp code
+<%
+int n = Integer.parseInt(request.getParameter("num"));
+int i,flag=0;
+for(i=2;i<=n/2;i++)
+{
+if(n%i==0)
+{
+flag=1;
+break;
+}
+}
+if(flag==0)
+{
+%>
+<html>
+<body>
+<font size ="14" color="blue"><% out.println(n+"\t is a prime number"); %>
+</body>
+</html>
+<%
+}
+else
+{
+%>
+<html>
+<body>
+<font size ="14" color="red"><% out.println(n+"\t is not a prime number");%>
+</body>
+</html>
+<%
+}
+%>

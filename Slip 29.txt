@@ -1,0 +1,34 @@
+Slip 29
+
+1. Write a Java program to display information about all columns in the DONAR table using
+ResultSetMetaData.
+
+
+------------------------------------------------
+
+
+2. Write a Java program to create LinkedList of integer objects and perform the following:
+i. Add element at first position
+ii. Delete last element
+iii. Display the size of link list
+
+import java.util.LinkedList;
+public class LinkedListExample {
+ public static void main(String[] args) {
+ // Creating a LinkedList of integers
+ LinkedList<Integer> list = new LinkedList<>();
+ // Adding elements to the LinkedList
+ list.add(10);
+ list.add(20);
+ list.add(30);
+ // Adding element at the first position
+ list.addFirst(5);
+ // Deleting the last element
+ list.removeLast();
+ // Displaying the size of LinkedList
+ System.out.println("Size of LinkedList: " + list.size());
+ // Displaying the elements of LinkedList
+ System.out.println("Elements of LinkedList: " + list);
+ }
+}
+

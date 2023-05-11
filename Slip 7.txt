@@ -1,0 +1,121 @@
+Slip 7
+1. Write a java program that implements a multi-thread application that has three threads.
+First thread generates random integer number after every one second, if the number is
+even; second thread computes the square of that number and print it. If the number is
+odd, the third thread computes the of cube of that number and print it.
+import java.util.Random;
+class Square extends Thread
+{
+int x;
+Square(int n)
+{
+x = n;
+}
+public void run()
+{
+int sqr = x * x;
+System.out.println("Square of " + x + " = " + sqr );
+}
+}
+class Cube extends Thread
+{
+int x;
+Cube(int n)
+{x = n;
+}
+public void run()
+{
+int cub = x * x * x;
+System.out.println("Cube of " + x + " = " + cub );
+}
+}
+class Number extends Thread
+{
+public void run()
+{
+Random random = new Random();
+for(int i =0; i<5; i++
+{
+int randomInteger = random.nextInt(100);
+System.out.println("Random Integer generated : " + randomInteger);
+Square s = new Square(randomInteger);
+s.start()
+Cube c = new Cube(randomInteger);
+c.start();
+try {
+Thread.sleep(1000);
+} catch (InterruptedException ex) {
+System.out.println(ex);
+}
+}
+}
+}
+public class Thr {
+public static void main(String args[])
+{
+Number n = new Number();
+n.start();
+}
+}
+
+-------------------------------------------------------------------------
+
+
+2. Write a java program for the following: i. To create a Product(Pid, Pname, Price)
+table. ii. Insert at least five records into the table. iii. Display all the records from a
+table.
+
+
+import java.sql.*;
+import java.util.*;
+public class product7
+{
+public static void main(String args[])
+{
+Connection con;
+Scanner sc=new Scanner(System.in);
+try{
+Class.forName("org.postgresql.Driver");
+Con=DriverManager.getConnection("jdbc:postgresql://localhost:5432/product"
+,"postgres", "postgres");
+System.out.println("Enter product id:");
+int pid=sc.nextInt();
+System.out.println("Enter product name:");
+String pname=sc.next();
+System.out.println("Enter price:");
+int price=sc.nextInt();
+Statement stmt=con.createStatement();
+Int i=stmt.executeUpdate("insert into pro
+values("+pid+",'"+pname+"',"+price+");");
+con.close();
+stmt.close();
+}
+catch(Exception e)
+{
+System.out.println(e);
+}}}
+
+
+
+Database::-
+sudo su - postgres
+[sudo] password for ritu:
+postgres@ritu-VirtualBox:~$ psql
+psql (14.7 (Ubuntu 14.7-0ubuntu0.22.04.1))
+Type "help" for help.
+postgres=# create database product;
+CREATE DATABASE
+postgres=# \c
+You are now connected to database "postgres" as user "postgres".
+postgres=# \c product
+You are now connected to database "product" as user "postgres".
+product=# create table pro(pid int ,pname varchar(20),price int);
+CREATE TABLE
+product=# select * from pro;
+pid | pname | price
+product=# select * from pro;
+pid | pname | price
+-----+-------+-------
+(0 rows)
+product=# select * from pro;
+pid | pname | price  
